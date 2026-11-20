@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "coloured-sealanterns:block/dark_grey_sea_lantern"
+  }
+}

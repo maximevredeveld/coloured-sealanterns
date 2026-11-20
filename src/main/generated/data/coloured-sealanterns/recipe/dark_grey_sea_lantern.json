@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:prismarine_crystals",
+    "D": "minecraft:gray_dye",
+    "S": "minecraft:prismarine_shard"
+  },
+  "pattern": [
+    "SCS",
+    "CDC",
+    "SCS"
+  ],
+  "result": {
+    "id": "coloured-sealanterns:dark_grey_sea_lantern"
+  }
+}

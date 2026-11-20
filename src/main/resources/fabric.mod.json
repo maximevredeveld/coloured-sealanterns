@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "coloured-sealanterns",
+	"version": "${version}",
+	"name": "Coloured Sea Lanterns",
+	"description": "Adding 16 coloured variants of the Sea Lantern",
+	"authors": [
+		"MaxzimeMC"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/coloured-sealanterns/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.maxzime.colouredsealanterns.ColouredSealanterns"
+		],
+		"fabric-datagen": [
+			"com.maxzime.colouredsealanterns.ColouredSealanternsDataGenerator"
+		]
+	},
+	"mixins": [
+		"coloured-sealanterns.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
