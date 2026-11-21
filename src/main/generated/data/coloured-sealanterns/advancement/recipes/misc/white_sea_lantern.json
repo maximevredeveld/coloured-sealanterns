@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "coloured-sealanterns:white_sea_lantern"
+        "recipes": "coloured-sealanterns:white_sea_lantern"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
