@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -26,38 +27,38 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             @Override
             public void buildRecipes() {
                 List<DyeColorEntry> entries = List.of(
-                        new DyeColorEntry(Items.BROWN_DYE, ModBlocks.BROWN_SEA_LANTERN),
-                        new DyeColorEntry(Items.RED_DYE, ModBlocks.RED_SEA_LANTERN),
-                        new DyeColorEntry(Items.ORANGE_DYE, ModBlocks.ORANGE_SEA_LANTERN),
-                        new DyeColorEntry(Items.YELLOW_DYE, ModBlocks.YELLOW_SEA_LANTERN),
-                        new DyeColorEntry(Items.LIME_DYE, ModBlocks.LIME_SEA_LANTERN),
-                        new DyeColorEntry(Items.GREEN_DYE, ModBlocks.GREEN_SEA_LANTERN),
-                        new DyeColorEntry(Items.CYAN_DYE, ModBlocks.CYAN_SEA_LANTERN),
-                        new DyeColorEntry(Items.LIGHT_BLUE_DYE, ModBlocks.LIGHT_BLUE_SEA_LANTERN),
-                        new DyeColorEntry(Items.BLUE_DYE, ModBlocks.BLUE_SEA_LANTERN),
-                        new DyeColorEntry(Items.PURPLE_DYE, ModBlocks.PURPLE_SEA_LANTERN),
-                        new DyeColorEntry(Items.MAGENTA_DYE, ModBlocks.MAGENTA_SEA_LANTERN),
-                        new DyeColorEntry(Items.PINK_DYE, ModBlocks.PINK_SEA_LANTERN),
-                        new DyeColorEntry(Items.WHITE_DYE, ModBlocks.WHITE_SEA_LANTERN),
-                        new DyeColorEntry(Items.LIGHT_GRAY_DYE, ModBlocks.LIGHT_GREY_SEA_LANTERN),
-                        new DyeColorEntry(Items.GRAY_DYE, ModBlocks.DARK_GREY_SEA_LANTERN),
-                        new DyeColorEntry(Items.BLACK_DYE, ModBlocks.BLACK_SEA_LANTERN)
+                        new DyeColorEntry(DyeColor.BROWN, ModBlocks.BROWN_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.RED, ModBlocks.RED_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.ORANGE, ModBlocks.ORANGE_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.YELLOW, ModBlocks.YELLOW_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.LIME, ModBlocks.LIME_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.GREEN, ModBlocks.GREEN_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.CYAN, ModBlocks.CYAN_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.LIGHT_BLUE, ModBlocks.LIGHT_BLUE_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.BLUE, ModBlocks.BLUE_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.PURPLE, ModBlocks.PURPLE_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.MAGENTA, ModBlocks.MAGENTA_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.PINK, ModBlocks.PINK_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.WHITE, ModBlocks.WHITE_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.LIGHT_GRAY, ModBlocks.LIGHT_GREY_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.GRAY, ModBlocks.DARK_GREY_SEA_LANTERN),
+                        new DyeColorEntry(DyeColor.BLACK, ModBlocks.BLACK_SEA_LANTERN)
                 );
 
                 for (DyeColorEntry entry : entries) {
-                    shaped(RecipeCategory.MISC, entry.seaLantern(), 1) // change `1` to `4` if you want 4 output lanterns
+                    shaped(RecipeCategory.MISC, entry.seaLantern(), 1)
                             .pattern("SCS")
                             .pattern("CDC")
                             .pattern("SCS")
                             .define('C', Items.PRISMARINE_CRYSTALS)
                             .define('S', Items.PRISMARINE_SHARD)
-                            .define('D', entry.dye())
+                            .define('D', Items.DYE.pick(entry.dye()))
                             .unlockedBy(getHasName(Items.PRISMARINE_SHARD), has(Items.PRISMARINE_SHARD))
                             .save(output);
                 }
             }
 
-            private record DyeColorEntry(Item dye, Block seaLantern) {}
+            private record DyeColorEntry(DyeColor dye, Block seaLantern) {}
         };
     }
 
