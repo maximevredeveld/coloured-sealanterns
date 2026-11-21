@@ -8,9 +8,9 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -21,7 +21,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
+    protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull RecipeOutput output) {
 
         return new RecipeProvider(registries, output) {
             @Override
@@ -63,7 +63,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Coloured Sea Lanterns Recipes";
     }
 }
